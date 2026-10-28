@@ -30,16 +30,16 @@
             softgray: '#F3EFE6'
           },
           fontFamily: {
-            huninn: ['Huninn', 'cursive', 'sans-serif'],
+            huninn: ['Huninn', 'cursive', 'sans-serif']
           },
           boxShadow: {
             'picture': '4px 4px 0px #3E3A39',
             'picture-sm': '2px 2px 0px #3E3A39',
-            'picture-lg': '6px 6px 0px #3E3A39',
+            'picture-lg': '6px 6px 0px #3E3A39'
           }
         }
       }
-    }
+    };
   </script>
 
   <style>
@@ -156,7 +156,6 @@
         <a href="#flights" class="hover:text-coral transition">航班資訊</a>
         <a href="#itinerary" class="hover:text-coral transition">每日行程</a>
         <a href="#hotel" class="hover:text-coral transition">住宿資訊</a>
-        <a href="#subway-map" class="hover:text-coral transition">地鐵路線圖</a>
       </div>
     </div>
   </nav>
@@ -351,70 +350,7 @@
       </div>
     </section>
 
-    <!-- 5. 東京地鐵路線圖 -->
-    <section id="subway-map" class="bg-yamabuki/20 picture-border p-6 shadow-picture space-y-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">🚇</span>
-          <h2 class="text-2xl font-black text-ink">東京地鐵路線圖</h2>
-        </div>
-        <button onclick="openMapModal()" class="px-3 py-1 bg-white text-ink text-xs font-bold rounded-xl border-2 border-ink shadow-picture-sm hover:bg-coral hover:text-white transition flex items-center gap-1">
-          🔍 點擊全螢幕放大
-        </button>
-      </div>
-
-      <div class="bg-white picture-border-sm p-4 shadow-picture-sm space-y-4">
-        <!-- 官方繁體中文地鐵圖展示區 -->
-        <div onclick="openMapModal()" class="relative group cursor-zoom-in overflow-hidden rounded-xl border-3 border-ink bg-white p-2">
-          <div class="w-full flex justify-center">
-            <img id="subway-img" 
-                 src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80"
-                 alt="東京地鐵路線圖 (繁體中文)" 
-                 class="w-full h-auto max-h-[450px] object-contain rounded-lg"
-                 onerror="handleImgError(this)" />
-          </div>
-
-          <!-- 遮罩懸浮按鈕 -->
-          <div class="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-            <span class="bg-white/95 text-ink text-xs font-bold px-4 py-2 rounded-full border-2 border-ink shadow-picture-sm">🔍 點擊開啟全螢幕原圖放大</span>
-          </div>
-        </div>
-
-        <!-- 線路說明標籤列 -->
-        <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-ink px-1">
-          <div class="flex items-center gap-2 flex-wrap">
-            <span class="px-2 py-0.5 bg-[#E85255] text-white rounded-md border border-ink">A 都營淺草線</span>
-            <span class="px-2 py-0.5 bg-[#B6007A] text-white rounded-md border border-ink">E 都營大江戶線</span>
-            <span class="px-2 py-0.5 bg-[#8F5E9B] text-white rounded-md border border-ink">Z 半藏門線</span>
-            <span class="px-2 py-0.5 bg-[#00BB85] text-white rounded-md border border-ink">C 千代田線</span>
-            <span class="px-2 py-0.5 bg-[#FF9500] text-white rounded-md border border-ink">G 銀座線</span>
-          </div>
-          <span class="text-ink/60">💡 官方繁體中文版·點擊可放大觀看細節</span>
-        </div>
-      </div>
-    </section>
-
   </main>
-
-  <!-- 地鐵圖放大 Fullscreen Modal -->
-  <div id="map-modal" class="fixed inset-0 z-[100] bg-ink/80 backdrop-blur-sm hidden flex-col items-center justify-center p-2 sm:p-4" onclick="closeMapModal()">
-    <div class="relative max-w-5xl w-full max-h-[92vh] bg-[#FFFDF9] picture-border p-3 sm:p-4 flex flex-col items-center overflow-hidden shadow-picture-lg" onclick="event.stopPropagation()">
-      <div class="w-full flex items-center justify-between pb-3 mb-2 border-b-2 border-ink/20">
-        <span class="font-black text-ink text-base sm:text-lg">🗺️ 東京地下鐵 / 都營線 路線圖全圖</span>
-        <button onclick="closeMapModal()" class="px-3 py-1 bg-coral text-white font-bold text-xs rounded-lg border-2 border-ink hover:opacity-90 transition">
-          ✕ 關閉
-        </button>
-      </div>
-      <!-- 滿版高清圖片展示 -->
-      <div class="w-full h-full overflow-auto flex justify-center items-center py-2">
-        <img id="modal-subway-img"
-             src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1600&q=80" 
-             alt="東京地鐵路線圖 (高清)" 
-             class="max-w-none w-full min-w-[650px] md:min-w-[850px] h-auto object-contain rounded-md"
-             onerror="handleImgError(this)" />
-      </div>
-    </div>
-  </div>
 
   <script>
     // 每日行程資料 (包含地點的 Google Maps 連結，已移除時間標示)
@@ -500,16 +436,8 @@
       plane: `<svg viewBox="0 0 100 100" class="w-16 h-16"><path d="M10,50 L40,40 L85,20 L75,50 L90,55 L85,65 L70,60 L50,85 L40,80 L48,55 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/></svg>`
     };
 
-    // 處理圖片載入失敗退回機制
-    function handleImgError(imgEl) {
-      // SVG 手繪風格地鐵備援圖
-      const fallbackSvg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500' width='100%' height='100%' style='background:%23FFFCF6;'><rect x='10' y='10' width='780' height='480' rx='20' fill='%23FFFCF6' stroke='%233E3A39' stroke-width='4'/><text x='400' y='60' text-anchor='middle' font-family='sans-serif' font-size='24' font-weight='bold' fill='%233E3A39'>🗺️ 東京主要地鐵路線導覽 (押上 / 淺草 / 六本木)</text><path d='M100 150 L300 150 L500 250 L700 250' fill='none' stroke='%23E85255' stroke-width='10' stroke-linecap='round'/><path d='M150 350 L350 350 L450 180 L650 180' fill='none' stroke='%23B6007A' stroke-width='10' stroke-linecap='round'/><path d='M120 220 L280 220 L600 220' fill='none' stroke='%23FF9500' stroke-width='10' stroke-linecap='round'/><path d='M200 100 L200 400' fill='none' stroke='%2300BB85' stroke-width='10' stroke-linecap='round'/><circle cx='300' cy='150' r='14' fill='%23FFFCF6' stroke='%233E3A39' stroke-width='4'/><text x='300' y='125' text-anchor='middle' font-size='14' font-weight='bold' fill='%233E3A39'>押上 (SKYTREE)</text><circle cx='500' cy='250' r='14' fill='%23FFFCF6' stroke='%233E3A39' stroke-width='4'/><text x='500' y='290' text-anchor='middle' font-size='14' font-weight='bold' fill='%233E3A39'>淺草 (A18)</text><circle cx='450' cy='180' r='14' fill='%23FFFCF6' stroke='%233E3A39' stroke-width='4'/><text x='450' y='155' text-anchor='middle' font-size='14' font-weight='bold' fill='%233E3A39'>六本木 (E23)</text><circle cx='350' cy='350' r='14' fill='%23FFFCF6' stroke='%233E3A39' stroke-width='4'/><text x='350' y='390' text-anchor='middle' font-size='14' font-weight='bold' fill='%233E3A39'>豐島園 (E36)</text><circle cx='280' cy='220' r='14' fill='%23FFFCF6' stroke='%233E3A39' stroke-width='4'/><text x='280' y='255' text-anchor='middle' font-size='14' font-weight='bold' fill='%233E3A39'>銀座 (G09)</text></svg>";
-      imgEl.src = fallbackSvg;
-    }
-
     // 切換日期
     function switchDay(index) {
-      // 標籤樣式切換
       document.querySelectorAll('.day-tab').forEach((tab, i) => {
         if (i === index) {
           tab.classList.remove('bg-white');
@@ -523,7 +451,6 @@
       const day = daysData[index];
       if (!day) return;
       
-      // 更新 Banner
       const banner = document.getElementById('day-banner');
       if (banner) {
         banner.innerHTML = `
@@ -535,17 +462,14 @@
         `;
       }
 
-      // 更新時間軸
       const timeline = document.getElementById('timeline-content');
       if (timeline) {
         timeline.innerHTML = day.timeline.map((item) => `
           <div class="flex gap-4 items-start relative pl-2">
-            <!-- 時間軸圓圈點 -->
             <div class="w-6 h-6 rounded-full bg-yamabuki border-3 border-ink z-10 flex-shrink-0 mt-1 shadow-picture-sm flex items-center justify-center">
               <div class="w-2 h-2 rounded-full bg-ink"></div>
             </div>
             
-            <!-- 行程內文區塊 -->
             <div class="flex-1 bg-white picture-border-sm p-4 space-y-2 shadow-picture-sm">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center gap-2 flex-wrap">
@@ -590,26 +514,6 @@
       if (elHours) elHours.innerText = String(hours).padStart(2, '0');
       if (elMins) elMins.innerText = String(mins).padStart(2, '0');
       if (elSecs) elSecs.innerText = String(secs).padStart(2, '0');
-    }
-
-    // 開啟地鐵圖 Modal
-    function openMapModal() {
-      const modal = document.getElementById('map-modal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    // 關閉地鐵圖 Modal
-    function closeMapModal() {
-      const modal = document.getElementById('map-modal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }
     }
 
     // 當 DOM 載入完成後初始化
